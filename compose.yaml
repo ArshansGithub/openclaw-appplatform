@@ -7,3 +7,8 @@ services:
     platform: ${PLATFORM:-linux/amd64}
     container_name: ${STABLE_HOSTNAME:-openclaw-test}
     env_file: .env
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    devices:
+      - /dev/net/tun:/dev/net/tun
